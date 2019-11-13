@@ -13,4 +13,7 @@ function setup() {
 
 function draw() {
     population.naturalSelection();
+    population.check();
+    if(population.completed)
+        noLoop();
 }
