@@ -4,6 +4,9 @@ class population {
         this.mutationRate = mutationRate;
         this.populationLimit = populationLimit;
         this.fitnessSum;
+        this.maxFitness = target.length;
+        this.completed = false;
+        this.generation = 0;
 
         this.newPopulation = [];
         this.population = [];
@@ -46,5 +49,15 @@ class population {
 
         for(let i = 0;i < this.population.length;i++)
             this.population[i] = this.newPopulation[i];
+        this.calcFitness();
+        this.generation++;
+        console.log(this.generation);
+    }
+
+    check() {
+        for(let i = 0;i < this.population.length;i++) {
+            if(this.population[i].fitness == this.maxFitness)
+                this.completed = true;
+        }
     }
 }
