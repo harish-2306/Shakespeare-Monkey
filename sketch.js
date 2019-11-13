@@ -4,7 +4,7 @@ let populationLimit;
 let population;
 
 function setup() {
-    target = "Hello World";
+    target = "helloworld";
     MutationRate = 0.01;
     populationLimit = 300;
 
@@ -12,5 +12,5 @@ function setup() {
 }
 
 function draw() {
-
+    population.naturalSelection();
 }
