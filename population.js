@@ -39,7 +39,9 @@ class population {
         for (let i = 0;i < this.population.length;i++) {
             let A = this.population[this.getWeightedRandom()];
             let B = this.population[this.getWeightedRandom()];
-            this.newPopulation[i] = (A.crossover(B)).mutate(this.mutationRate);
+            this.newPopulation[i] = ((A.crossover(B)).mutate(this.mutationRate).fitness >= 
+                (B.crossover(A)).mutate(this.mutationRate).fitness) ? (A.crossover(B)).mutate(this.mutationRate) 
+                : (B.crossover(A)).mutate(this.mutationRate);
         }
 
         for(let i = 0;i < this.population.length;i++)
