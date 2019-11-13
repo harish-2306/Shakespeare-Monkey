@@ -10,8 +10,23 @@ class DNA {
     calcFitness(target) {
         this.fitness = 0;
         for(let i = 0;i < this.genes.length;i++)
-            if(this.genes[i] == target[i])
+            if(this.genes[i] == target.charAt(i))
                 this.fitness++;
-        this.fitness /= this.genes.length;
+    }
+
+    crossover(Y) {
+        let XY = new DNA(this.genes.length);
+        let mid = floor(this.genes.length/2);
+        for(let i = 0;i < this.genes.length;i++) {
+            if(i <= mid)
+                XY.genes[i] = this.genes[i];
+            else
+                XY.genes[i] = Y.genes[i];
+        }
+        return XY;
+    }
+
+    mutate(rate) {
+        
     }
 }
