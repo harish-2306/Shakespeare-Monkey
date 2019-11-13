@@ -27,6 +27,8 @@ class DNA {
     }
 
     mutate(rate) {
-        
+        for(let i = 0;i < this.genes.length;i++)
+            if(random(0,1) <= rate)
+                this.genes[i] = String.fromCharCode(floor(random(65, 91)));
     }
 }
